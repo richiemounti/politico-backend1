@@ -1,0 +1,18 @@
+dist: xenial
+language: python
+python: 3.7
+# command to install dependencies
+install:
+  - pip install -r requirements.txt
+# command to run tests
+
+before_script:
+  - export FLASK_APP=politicer
+  - export FLASK_DEBUG=1
+  - export FLASK_ENV=development
+
+script:
+  - python -m pytest --cov
+
+after_success:
+  - codeclimate -test-reporter

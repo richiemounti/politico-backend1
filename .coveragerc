@@ -1,0 +1,9 @@
+[run]
+omit = 
+        travis/*
+        travis/
+        
+[report]    
+omit = 
+      travis/*
+      travis/
