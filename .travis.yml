@@ -13,6 +13,8 @@ before_script:
 
 script:
   - python -m pytest --cov
+  - coveralls
 
 after_success:
+  - coveralls
   - codeclimate -test-reporter
