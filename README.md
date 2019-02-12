@@ -8,7 +8,7 @@
 ## Setup and installation
 1. Clone the repo
    ```git
-
+      https://github.com/richiemounti/politico-backend1.git
    ```
 
 2. Set up virtualenv
