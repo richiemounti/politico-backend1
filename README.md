@@ -1,5 +1,7 @@
 # politico-backend1
 [![Build Status](https://travis-ci.com/richiemounti/politico-backend1.svg?branch=zeno-dev)](https://travis-ci.com/richiemounti/politico-backend1)
+[![Maintainability](https://api.codeclimate.com/v1/badges/80b9d5c51edac345d812/maintainability)](https://codeclimate.com/github/richiemounti/politico-backend1/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/80b9d5c51edac345d812/test_coverage)](https://codeclimate.com/github/richiemounti/politico-backend1/test_coverage)
 
 
 ## Description
