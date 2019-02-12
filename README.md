@@ -1,6 +1,4 @@
 # politico-backend1
-
-##Badges
 [![Build Status](https://travis-ci.com/richiemounti/politico-backend1.svg?branch=zeno-dev)](https://travis-ci.com/richiemounti/politico-backend1)
 
 
