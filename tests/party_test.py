@@ -47,12 +47,14 @@ class TestParty(unittest.TestCase):
             "type": "Federal",
         }
     
+    ''' @app.route '''
     def test_default_route(self):
         res = self.client2.get('/')
         dataCheck = json.loads(res.data)
         self.assertEqual(res.status_code, 200)
         self.assertTrue('status' in dataCheck)
     
+    ''' error handlers '''
     def test_page_not_found(self):
         res = self.client2.get('/page')
         dataCheck = json.loads(res.data)
