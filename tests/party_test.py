@@ -39,15 +39,39 @@ class TestParty(unittest.TestCase):
             "type": "Legislative",
         }
         self.office1 = {
-            "name": "Johny English",
-            "type": "Legislative",
+            "name": "Joe Muchiri",
+            "type": "Federal",
         }
         self.office2 = {
             "name": "Babu Owino",
             "type": "Federal",
         }
+    
+    def test_default_route(self):
+        res = self.client2.get('/')
+        dataCheck = json.loads(res.data)
+        self.assertEqual(res.status_code, 200)
+        self.assertTrue('status' in dataCheck)
+    
+    def test_page_not_found(self):
+        res = self.client2.get('/page')
+        dataCheck = json.loads(res.data)
+        self.assertEqual(res.status_code, 404)
+        self.check_reply(dataCheck, 404, error=True)
 
+    def test_method_not_allowed(self):
+        res = self.client2.post('/')
+        dataCheck = json.loads(res.data)
+        self.assertEqual(res.status_code, 405)
+        self.check_reply(dataCheck, 404, error=True)
 
+    def check_reply(self, dataCheck, status, error=False):
+        self.assertTrue('status' in dataCheck)
+        if not error:
+            self.assertTrue('data' in dataCheck)
+        else:
+            self.assertTrue('error' in dataCheck)
+    
     
 
 if __name__ == '__main__':

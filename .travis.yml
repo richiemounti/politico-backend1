@@ -16,5 +16,5 @@ script:
 
 
 after_success:
-  - coveralls
+  - Rscript -e 'covr::coveralls()'
   - codeclimate -test-reporter

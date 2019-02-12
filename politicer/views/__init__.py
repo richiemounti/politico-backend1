@@ -27,6 +27,6 @@ class Views(object):
         parties.clear()
         offices.clear()
         return make_response(jsonify({"message":"Done", "status" : 200}))
-
+    
     
     
