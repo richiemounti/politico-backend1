@@ -87,7 +87,7 @@ app is available at [http://127.0.0.1:5000/](http://127.0.0.1:5000/)
 
 [Pivotal Tracker](https://www.pivotaltracker.com/n/projects/2241595)
 
-## Application Endpoints
+## Application Endpoints(Minimum data required to work with the endpoints)
 
    
     ```
@@ -96,12 +96,12 @@ app is available at [http://127.0.0.1:5000/](http://127.0.0.1:5000/)
      "hqAddress": "headquarters",
      "logoUrl": "imageUrl"
 
-   }
-   ```
+       }
+      ```
   
     ```
       {
      "name": "office name",
      "type": "type"
-   }
-   ```
+      }
+      ```
