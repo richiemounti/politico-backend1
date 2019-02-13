@@ -88,6 +88,7 @@ app is available at [http://127.0.0.1:5000/](http://127.0.0.1:5000/)
 [Pivotal Tracker](https://www.pivotaltracker.com/n/projects/2241595)
 
 ##Party Endpoints
+
 The following are the minimum data requirements for the party endpoints
     ```
       {
@@ -95,5 +96,15 @@ The following are the minimum data requirements for the party endpoints
      "hqAddress": "headquarters",
      "logoUrl": "imageUrl"
 
+   }
+   ```
+   
+##Office Endpoints
+
+The following are the minimum data requirements for the office endpoints
+    ```
+      {
+     "name": "party name",
+     "type": "type"
    }
    ```
