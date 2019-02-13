@@ -87,6 +87,10 @@ app is available at [http://127.0.0.1:5000/](http://127.0.0.1:5000/)
 
 [Pivotal Tracker](https://www.pivotaltracker.com/n/projects/2241595)
 
+## Deployment
+
+[Heroku](https://politico-backend1.herokuapp.com/)
+
 ## Application Endpoints(Minimum data required to work with the endpoints)
 
   
@@ -105,3 +109,4 @@ app is available at [http://127.0.0.1:5000/](http://127.0.0.1:5000/)
      "type": "type"
       }
       ```
+   
