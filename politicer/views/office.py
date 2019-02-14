@@ -13,21 +13,31 @@ from politicer.models.office_models import Office, offices, officeTypes
 # create a office
 @bp.route('/v1/admin/office', methods=['POST'])
 def create_office():
-    data = Views.get_data()
+    try:
+        data = Views.get_data()
 
-    validateoffice(data)
+        validateoffice(data)
 
-    new_office = Office (
-        data["name"],
-        data["type"]
-    )
-    
-    new_office.save_office()
-    details = new_office.office_list()
+        new_office = Office (
+            data["name"],
+            data["type"]
+        )
+        office_exists = Office.input_exists(offices, new_office.name)
+        if office_exists:
+            # pass
+            res = jsonify({'status': 400, 'error': "Duplicate name error, Office {} already exists with id {}".format(
+                data['name'], office_exists), 'data': []})
+            return make_response(res, 400)
+        
+        new_office.save_office()
+        details = new_office.office_list()
 
-    res = jsonify({"status": 201, "data": details})
-    return make_response(res, 201)
+        res = jsonify({"status": 201, "data": details})
+        return make_response(res, 201)
 
+    except(ValueError, KeyError, TypeError):
+        res = jsonify({"message": "missing parameters"})
+        return make_response(res, 400)
 
 # get all offices
 @bp.route('/v1/user/office', methods=['GET'])
@@ -76,8 +86,10 @@ VALIDATIONS
 '''
 def validateoffice(new_office):
     '''This function validates new office inputs '''
-
-    for key, value in new_office.items():
+    
+    office = new_office.items()
+    required_fields = ['name', 'type']
+    for key, value in office:
         # ensure keys have values
         if not value:
             return abort(make_response(jsonify({"message":"{} is lacking. it is a required field".format(key)})))
@@ -87,4 +99,5 @@ def validateoffice(new_office):
                 return abort(make_response(jsonify({"message":"The {} provided is too short".format(key)}), 400))
             elif len(value) > 20:
                 return abort(make_response(jsonify({"message":"The {} provided is too long".format(key)}), 400))
-
+        if key not in required_fields:
+            return abort(make_response(jsonify({"message": "invalid credentials"}), 400))

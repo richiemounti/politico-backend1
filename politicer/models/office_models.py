@@ -22,6 +22,15 @@ class Office():
             'name': self.name, 
             'type': self.type,
         }
+
+    ''' checks for duplicates '''
+    @staticmethod
+    def input_exists(offices, name):
+        for x in offices:
+            if offices[x].name == name:
+                return x
+        return False
+
     ''' autogenerate id for new_office '''
     def create_id(self, id=0):
         if id == 0:

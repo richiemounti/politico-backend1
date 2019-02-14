@@ -1,5 +1,4 @@
 import os
-
 from flask import Flask, make_response, jsonify
 from politicer.views import party, office
 from politicer.models import party_models, office_models
@@ -7,14 +6,10 @@ from instance.config import configs
 
 
 
-def internal_server_error(e):
-    ''' handles server errors '''
-    res ={
-        "error": "We're having difficulties at the moment",
-        "status": 500
-    }
-    return make_response(jsonify(res), 500)
 
+def handle_bad_request(e):
+    res= jsonify(dict(error= 'bad request!', status= 400))
+    return make_response(res, 400)
 
 def method_not_allowed(e):
     ''' handles method not allowed errors '''
@@ -62,8 +57,9 @@ def create_app(test_config):
             status = 200
         ))
         return make_response(res, 200)
-
-    app.register_error_handler(500, internal_server_error)
+    
+    
+    app.register_error_handler(400, handle_bad_request)
     app.register_error_handler(405, method_not_allowed)
     app.register_error_handler(404, page_not_found)
     app.register_blueprint(party.bp)

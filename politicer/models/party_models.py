@@ -16,6 +16,7 @@ class Party():
         self.logoUrl = logoUrl
         self.id = self.create_id()
 
+        
     ''' returns string string representations of the dictionary object '''
     def serialize(self):
         return {
@@ -24,6 +25,14 @@ class Party():
             'hqAddress': self.hqAddress,
             'logoUrl': self.logoUrl,
         }
+
+    ''' checks for duplicates '''
+    @staticmethod
+    def input_exists(parties, name):
+        for x in parties:
+            if parties[x].name == name:
+                return x
+        return False
 
     ''' autogenerate id for new_party '''
     def create_id(self, id=0):
