@@ -86,13 +86,6 @@ def party_delete(x):
         return (res, 200)
 
 
-@bp.route('/v1/d')
-def parties_delete(x):
-    parties[x].delete_parties()
-    res = jsonify({"status": 200, "data": "parties deleted"})
-    return (res, 200)
-
-
 
 '''
 VALIDATIONS
