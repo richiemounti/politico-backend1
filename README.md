@@ -69,7 +69,7 @@
 
 app is available at [http://127.0.0.1:5000/](http://127.0.0.1:5000/)
 
-##API Endpoints
+## API Endpoints
 
 | Method   | Endpoint                             | Description                                 |
 | -------- | ------------------------------------ | -------------------------------------       |
@@ -82,7 +82,31 @@ app is available at [http://127.0.0.1:5000/](http://127.0.0.1:5000/)
 | `POST`   | `/v1/admin/office`                   | Post a new office                           |
 | `GET`    | `/v1/user/offices/<int:x>`           | Get a specific office                       |
 
+
 ## Project management 
 
 [Pivotal Tracker](https://www.pivotaltracker.com/n/projects/2241595)
 
+## Deployment
+
+[Heroku](https://politico-backend1.herokuapp.com/)
+
+## Application Endpoints(Minimum data required to work with the endpoints)
+
+  
+    ```
+      {
+     "name": "party name",
+     "hqAddress": "headquarters",
+     "logoUrl": "imageUrl"
+
+       }
+      ```
+
+    ```
+      {
+     "name": "office name",
+     "type": "type"
+      }
+      ```
+   
