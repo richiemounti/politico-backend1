@@ -5,7 +5,12 @@ from politicer.models import party_models, office_models
 from instance.config import configs
 
 
-
+def internal_server_error(e):
+    res = jsonify(dict(
+        error = "it's us not you",
+        status = 500
+    ))
+    return make_response(res, 500)
 
 def handle_bad_request(e):
     res= jsonify(dict(error= 'bad request!', status= 400))
@@ -58,7 +63,7 @@ def create_app(test_config):
         ))
         return make_response(res, 200)
     
-    
+    app.register_error_handler(500, internal_server_error)
     app.register_error_handler(400, handle_bad_request)
     app.register_error_handler(405, method_not_allowed)
     app.register_error_handler(404, page_not_found)
