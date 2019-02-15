@@ -5,6 +5,7 @@
 
 
 ## Description
+Politico is a service that aims to bring people closer with leaders. It aims to bring transparency to the electoral process through a decentralised voting process. This will ensure public Trust in the electoral process
 
 
 ## Setup and installation
