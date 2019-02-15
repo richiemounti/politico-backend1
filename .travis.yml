@@ -12,7 +12,7 @@ before_script:
   - export FLASK_ENV=development
 
 script:
-  - python -m pytest --cov
+  - pytest --cov=politicer
 
 
 after_success:

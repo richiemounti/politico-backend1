@@ -1,7 +1,8 @@
 
 import unittest
 import json
-from .party_test import TestParty 
+from .party_test import TestParty
+
 
 class PartyTests(TestParty):
     '''Party tests are done here '''
